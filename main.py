@@ -66,7 +66,10 @@ def create_product(product: ProductSchema, db: Session = Depends(get_db)):
 # ✅ READ ALL
 @app.get("/products")
 def get_products(db: Session = Depends(get_db)):
-    return db.query(Products).all()
+    products = db.query(Products).all()
+    if not products:
+        return {"message": "No records found"}
+    return products
 
 
 # ✅ READ ONE
