@@ -36,6 +36,7 @@ database_models.Base.metadata.create_all(bind=engine)
 # ------------------ SCHEMA (IMPORTANT FIX) ------------------
 
 class ProductSchema(BaseModel):
+    id: int
     name: str
     description: str
     price: float
